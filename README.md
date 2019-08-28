@@ -27,7 +27,6 @@ export default () => {
 Make the `Grid` or `Col` components use whatever html tag you want, or even a custom component--as long as it passes className through.
 
 ```js
-import {Grid, Col} from "latticework"
 
 // BlueBackground
 // CustomCard
