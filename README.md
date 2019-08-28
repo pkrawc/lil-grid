@@ -40,7 +40,7 @@ export default () => {
     <Col as={CustomCard} /> // will render your column as a card..
   </Grid>
 }
-
+```
 
 ## Props
 
