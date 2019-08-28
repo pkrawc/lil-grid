@@ -44,21 +44,28 @@ export default () => {
 
 ## Props
 
-### Grid
-
-| Name     | Required | Default | Description                        |
-| -------- | -------- | ------- | ---------------------------------- |
-| gap      | false    | 2       | Grid gap between columns and rows. |
-| columns  | false    | 12      | Number of columns in the grid.     |
-| xsmBreak | false    | 40      | Extra small breakpoint             |
-| smBreak  | false    | 60      | Small breakpoint                   |
-| mdBreak  | false    | 80      | Medium breakpoint                  |
-| lgBreak  | false    | 100     | Large breakpoint                   |
-| xlgBreak | false    | 120     | Extra large breakpoint             |
-
 ### Col
 
 | Name   | Required | Default  | Description                                 |
 | ------ | -------- | -------- | ------------------------------------------- |
 | span   | true     | [12]     | An array of lenghts for the column to span. |
 | offset | false    | ["auto"] | An array of offsets for the column.         |
+
+## Theme
+
+### Grid
+
+```js
+// Default theme. Sizing in rems
+<Grid theme={{
+  gap: 2,
+  columns: 12,
+  breakPoints: {
+    xsm: 40,
+    sm: 60,
+    md: 80,
+    lg: 100,
+    xlg: 120
+  }
+}} />
+```
