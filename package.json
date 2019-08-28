@@ -8,6 +8,7 @@
     "dist/*"
   ],
   "scripts": {
+    "build": "babel index.js -d dist",
     "prepublishOnly": "babel index.js -d dist"
   },
   "keywords": [
