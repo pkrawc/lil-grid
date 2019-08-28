@@ -1,6 +1,6 @@
 {
   "name": "lil-grid",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A tiny grid for styled-components systems",
   "repository": "github:pkrawc/lil-grid",
   "main": "dist/index.js",
