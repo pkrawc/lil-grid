@@ -45,6 +45,7 @@ export default () => {
 ## Props
 
 ### Grid
+
 | Name     | Required | Default | Description                        |
 | -------- | -------- | ------- | ---------------------------------- |
 | gap      | false    | 2       | Grid gap between columns and rows. |
@@ -56,6 +57,7 @@ export default () => {
 | xlgBreak | false    | 120     | Extra large breakpoint             |
 
 ### Col
+
 | Name   | Required | Default  | Description                                 |
 | ------ | -------- | -------- | ------------------------------------------- |
 | span   | true     | [12]     | An array of lenghts for the column to span. |
