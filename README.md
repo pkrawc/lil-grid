@@ -7,7 +7,7 @@ A _tiny_ grid for `styled-components` systems.
 Install the package locally along with it's peer dependencies.
 
 ```bash
-npm install latticework styled-components react react-dom
+npm install lil-grid styled-components react react-dom
 ```
 
 Now you can use latticework's grid wherever you can styled components.
