@@ -13,7 +13,7 @@ npm install lil-grid styled-components react react-dom
 Now you can use latticework's grid wherever you can styled components.
 
 ```js
-import {Grid, Col} from "latticework"
+import {Grid, Col} from "lil-grid"
 
 export default () => {
   return <Grid>
