@@ -4,7 +4,7 @@ import styled from "styled-components"
 const StyledGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(${({ theme }) => theme.columns}, 1fr);
-  grid-gap: ${({ theme }) => theme.gap};
+  grid-gap: ${({ theme }) => theme.gap}rem;
 `
 
 const Grid = ({ children, theme, ...props }) => {
@@ -17,7 +17,11 @@ const Grid = ({ children, theme, ...props }) => {
         breakPoints
       })
     )
-  return <StyledGrid {...props}>{renderChildren()}</StyledGrid>
+  return (
+    <StyledGrid theme={theme} {...props}>
+      {renderChildren()}
+    </StyledGrid>
+  )
 }
 
 Grid.defaultProps = {
