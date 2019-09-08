@@ -1,5 +1,8 @@
 # Lil Grid
 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/lil-grid)
+![npm](https://img.shields.io/npm/dm/lil-grid)
+
 A _tiny_ grid for `styled-components` systems.
 
 ## Anatomy

@@ -1,0 +1,87 @@
+import Features from "../components/features"
+import { Grid, Col } from "lil-grid"
+import Code from "../components/code-block"
+import { colors } from "../constants.js"
+
+# LiL Grid
+
+### A tiny composable grid for styled-components.
+
+Built for ease of use and low overhead. Use this for any and all of your react projects.
+
+<Features />
+
+## Getting Started
+
+Install with your favorite package manager.
+
+```bash
+npm install lil-grid styled-components
+```
+
+export const style = { background: colors.blue_100, padding: "2rem" }
+
+export const rows = [
+  [12],
+  [6, 6],
+  [4, 4, 4],
+  [3, 3, 3, 3],
+  [2, 2, 2, 2, 2, 2],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+]
+
+## Basic Usage
+
+This grid is built with two components. `Grid` is a wrapper and `Col` is always an immediate child of the `Grid`.
+
+### Array prop syntax
+
+The column component accepts two props to style the grid. Both should be passed as arrays, the arrays represent changes at each breakpoint: [xsm, sm, md, lg, xlg]
+
+<br/><br/><br/>
+
+<Grid>
+  <Col span={[12, 4]} style={style}>
+    One Third
+  </Col>
+  <Col span={[12, 4]} style={style}>
+    One Third
+  </Col>
+  <Col span={[12, 4]} style={style}>
+    One Third
+  </Col>
+</Grid>
+
+```jsx
+import { Col, Grid } from "lil-grid"
+
+const style = { background: colors.blue_100, padding: "2rem" }
+
+function Component() {
+  return (
+    <Grid>
+      <Col span={[12, 4]} style={style}>
+        One Third
+      </Col>
+      <Col span={[12, 4]} style={style}>
+        One Third
+      </Col>
+      <Col span={[12, 4]} style={style}>
+        One Third
+      </Col>
+    </Grid>
+  )
+}
+```
+
+## Grid
+
+| Name  | Required | Default     | Description                                                   |
+| ----- | -------- | ----------- | ------------------------------------------------------------- |
+| theme | no       | ThemeObject | Pass as a theme object to customize grid breakpoints and gaps |
+
+## Col
+
+| Name | Required | Default | Description                             |
+| ---- | -------- | ------- | --------------------------------------- |
+| span | yes      | n/a     | Array of amounts for the column to span |
