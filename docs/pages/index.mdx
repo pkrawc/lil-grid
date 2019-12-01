@@ -19,6 +19,10 @@ Install with your favorite package manager.
 npm install lil-grid styled-components
 ```
 
+<br />
+<br />
+<br />
+
 export const style = { background: colors.blue_100, padding: "2rem" }
 
 export const rows = [
@@ -34,23 +38,28 @@ export const rows = [
 
 This grid is built with two components. `Grid` is a wrapper and `Col` is always an immediate child of the `Grid`.
 
+<br />
+<br />
+
 ### Array prop syntax
 
 The column component accepts two props to style the grid. Both should be passed as arrays, the arrays represent changes at each breakpoint: [xsm, sm, md, lg, xlg]
 
-<br/><br/><br/>
-
-<Grid>
-  <Col span={[12, 4]} style={style}>
-    One Third
-  </Col>
-  <Col span={[12, 4]} style={style}>
-    One Third
-  </Col>
-  <Col span={[12, 4]} style={style}>
-    One Third
-  </Col>
-</Grid>
+<br />
+<br />
+<br />
+<section>
+  {rows.map(row => (
+    <Grid style={{marginBottom: "2rem"}}>
+      {row.map(col => <Col
+          span={[12, col / 2, col]}
+          style={style}>
+            <p style={{fontSize: 12, margin: 0}}>{col}</p>
+        </Col>
+      )}
+    </Grid>
+  ))}
+</section>
 
 ```jsx
 import { Col, Grid } from "lil-grid"
@@ -58,18 +67,12 @@ import { Col, Grid } from "lil-grid"
 const style = { background: colors.blue_100, padding: "2rem" }
 
 function Component() {
-  return (
-    <Grid>
-      <Col span={[12, 4]} style={style}>
-        One Third
+  return rows.map(row =>
+    row.map(col => (
+      <Col span={[12, col]} style={style}>
+        <p style={{ fontSize: 12, margin: 0 }}>{col}</p>
       </Col>
-      <Col span={[12, 4]} style={style}>
-        One Third
-      </Col>
-      <Col span={[12, 4]} style={style}>
-        One Third
-      </Col>
-    </Grid>
+    ))
   )
 }
 ```
