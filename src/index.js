@@ -7,6 +7,18 @@ const getOffset = (arr, idx) =>
 
 const getBreakpoint = ({ theme: { breakPoints } }, key) => breakPoints[key];
 
+const theme = {
+  columns: 12,
+  gap: 2,
+  breakPoints: {
+    xsm: 40,
+    sm: 60,
+    md: 80,
+    lg: 100,
+    xlg: 120
+  }
+};
+
 const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(${({ theme }) => theme.columns}, 1fr);
@@ -14,10 +26,7 @@ const Grid = styled.section`
 `;
 
 Grid.defaultProps = {
-  theme: {
-    columns: 12,
-    gap: 2
-  }
+  theme
 };
 
 const Col = styled.div`
@@ -48,15 +57,7 @@ const Col = styled.div`
 Col.defaultProps = {
   offset: ["auto"],
   span: [12],
-  theme: {
-    breakPoints: {
-      xsm: 40,
-      sm: 60,
-      md: 80,
-      lg: 100,
-      xlg: 120
-    }
-  }
+  theme
 };
 
-export { Grid, Col };
+export { Grid, Col, theme };
