@@ -8,27 +8,28 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "babel grid/index.js -d dist",
-    "prepublishOnly": "babel grid/index.js -d dist"
+    "build": "babel src/index.js -d dist",
+    "prepublishOnly": "babel src/index.js -d dist"
   },
   "keywords": [
     "grid",
     "styled-components"
   ],
   "author": "Patrick Krawczykowski <patrick@dreadful.design>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "styled-components": "^4.3.2"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "babel-plugin-styled-components": "^1.10.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.1"
   }
 }

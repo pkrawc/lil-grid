@@ -7,7 +7,4 @@ npm-debug.log
 
 # Build
 dist
-
-# Docs
-docs/node_modules
-docs/.next
+.next
