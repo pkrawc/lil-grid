@@ -1,29 +1,54 @@
-import React from "react"
-import styled from "styled-components"
+import styled from "styled-components";
 
-const StyledGrid = styled.section`
+const getIndex = (arr, idx) => (arr[idx] ? arr[idx] : arr[arr.length - 1]);
+
+const getOffset = (arr, idx) =>
+  getIndex(arr, idx) === "auto" ? "auto" : getIndex(arr, idx) + 1;
+
+const getBreakpoint = ({ theme: { breakPoints } }, key) => breakPoints[key];
+
+const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(${({ theme }) => theme.columns}, 1fr);
   grid-gap: ${({ theme }) => theme.gap}rem;
-`
-
-const Grid = ({ children, ...props }) => {
-  const breakPoints = {
-    ...props.theme.breakPoints
-  }
-  const renderChildren = () =>
-    React.Children.map(children, child =>
-      React.cloneElement(child, {
-        breakPoints
-      })
-    )
-  return <StyledGrid {...props}>{renderChildren()}</StyledGrid>
-}
+`;
 
 Grid.defaultProps = {
   theme: {
     columns: 12,
-    gap: 2,
+    gap: 2
+  }
+};
+
+const Col = styled.div`
+  grid-column: ${({ offset }) => getOffset(offset, 0)} / span
+    ${({ span }) => getIndex(span, 0)};
+  @media (min-width: ${props => getBreakpoint(props, "xsm")}rem) {
+    grid-column: ${({ offset }) => getOffset(offset, 1)} / span
+      ${({ span }) => getIndex(span, 1)};
+  }
+  @media (min-width: ${props => getBreakpoint(props, "sm")}rem) {
+    grid-column: ${({ offset }) => getOffset(offset, 2)} / span
+      ${({ span }) => getIndex(span, 2)};
+  }
+  @media (min-width: ${props => getBreakpoint(props, "md")}rem) {
+    grid-column: ${({ offset }) => getOffset(offset, 3)} / span
+      ${({ span }) => getIndex(span, 3)};
+  }
+  @media (min-width: ${props => getBreakpoint(props, "lg")}rem) {
+    grid-column: ${({ offset }) => getOffset(offset, 4)} / span
+      ${({ span }) => getIndex(span, 4)};
+  }
+  @media (min-width: ${props => getBreakpoint(props, "xlg")}rem) {
+    grid-column: ${({ offset }) => getOffset(offset, 5)} / span
+      ${({ span }) => getIndex(span, 5)};
+  }
+`;
+
+Col.defaultProps = {
+  offset: ["auto"],
+  span: [12],
+  theme: {
     breakPoints: {
       xsm: 40,
       sm: 60,
@@ -32,41 +57,6 @@ Grid.defaultProps = {
       xlg: 120
     }
   }
-}
+};
 
-const getIndex = (arr, idx) => (arr[idx] ? arr[idx] : arr[arr.length - 1])
-
-const getOffset = (arr, idx) =>
-  getIndex(arr, idx) === "auto" ? "auto" : getIndex(arr, idx) + 1
-
-const Col = styled.div`
-  grid-column: ${({ offset }) => getOffset(offset, 0)} / span
-    ${({ span }) => getIndex(span, 0)};
-  @media (min-width: ${({ breakPoints: { xsm } }) => xsm}rem) {
-    grid-column: ${({ offset }) => getOffset(offset, 1)} / span
-      ${({ span }) => getIndex(span, 1)};
-  }
-  @media (min-width: ${({ breakPoints: { sm } }) => sm}rem) {
-    grid-column: ${({ offset }) => getOffset(offset, 2)} / span
-      ${({ span }) => getIndex(span, 2)};
-  }
-  @media (min-width: ${({ breakPoints: { md } }) => md}rem) {
-    grid-column: ${({ offset }) => getOffset(offset, 3)} / span
-      ${({ span }) => getIndex(span, 3)};
-  }
-  @media (min-width: ${({ breakPoints: { lg } }) => lg}rem) {
-    grid-column: ${({ offset }) => getOffset(offset, 4)} / span
-      ${({ span }) => getIndex(span, 4)};
-  }
-  @media (min-width: ${({ breakPoints: { xlg } }) => xlg}rem) {
-    grid-column: ${({ offset }) => getOffset(offset, 5)} / span
-      ${({ span }) => getIndex(span, 5)};
-  }
-`
-
-Col.defaultProps = {
-  offset: ["auto"],
-  span: [12]
-}
-
-export { Grid, Col }
+export { Grid, Col };
