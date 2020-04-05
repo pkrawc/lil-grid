@@ -4,32 +4,47 @@
   "description": "A tiny grid for styled-components systems",
   "repository": "github:pkrawc/lil-grid",
   "main": "dist/index.js",
+  "module": "src/index.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/*"
   ],
   "scripts": {
-    "build": "babel src/index.js -d dist",
-    "prepublishOnly": "babel src/index.js -d dist"
+    "storybook": "start-storybook -p 6006",
+    "build": "babel src/index.js -d dist --ignore /**/*.stories.js,/**/*.test.js",
+    "prepublishOnly": "yarn build"
   },
   "keywords": [
     "grid",
     "styled-components"
   ],
+  "prettier": {
+    "semi": false
+  },
   "author": "Patrick Krawczykowski <patrick@dreadful.design>",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styled-components": "^4.3.2"
+    "react-is": "^16.13.1",
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.1.5"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.1",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.0.1"
+    "prettier": "^2.0.2"
   }
 }
