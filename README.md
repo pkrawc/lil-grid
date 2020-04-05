@@ -3,72 +3,49 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/lil-grid)
 ![npm](https://img.shields.io/npm/dm/lil-grid)
 
-A _tiny_ grid for `styled-components` systems.
+A _tiny_ grid for `styled-components` and `style-system`.
 
 ## Anatomy
 
-Tiny grid uses `rem` units to give a consistency within your design. You can should be setting the `rem` in your project to a spacing that makes sense for you.
+Tiny grid uses `rem` units by default to give a consistency within your design. You can should be setting the `rem` in your project to a spacing that makes sense for you.
+
+To set rem units reliably you can use the `:root` selector in CSS.
+
+```css
+:root {
+  font-size: 8px;
+}
+
+body {
+  /* Multiple of your base 8 * 2 = 16px */
+  font-size: 2rem;
+}
+```
+
+## Installation
+
+```bash
+npm install react react-dom styled-components styled-system lil-grid
+```
 
 ## Usage
 
-Install the package locally along with it's peer dependencies.
-
-```bash
-npm install lil-grid styled-components react react-dom
-```
-
-Now you can use latticework's grid wherever you can styled components.
-
 ```js
-import {Grid, Col} from "lil-grid"
+import { Grid, Col } from "lil-grid"
 
 export default () => {
-  return <Grid>
-    <Col span={[12, 4, 6, 12]}>
-      I will be 12 columns at the smallest size, then 4, then 6, then 12 again.
-    </Col>
-  </Grid>
+  return (
+    <Grid>
+      <Col gridColumn={["span 12", "span 6", "span 4"]}>
+        I will be 12 columns at the smallest size, then 6, then 4.
+      </Col>
+    </Grid>
+  )
 }
 ```
 
-Make the `Grid` or `Col` components use whatever html tag you want, or even a custom component--as long as it passes className through.
+## Grid
 
-```js
+Styled system allowed props are `layout`,`space`,`grid`,`flexbox`, & `color`.
 
-// BlueBackground
-// CustomCard
-
-export default () => {
-  return <Grid as={BlueBackground}> // will render your grid as the custom background.
-    <Col as={CustomCard} /> // will render your column as a card..
-  </Grid>
-}
-```
-
-## Props
-
-### Col
-
-| Name   | Required | Default  | Description                                 |
-| ------ | -------- | -------- | ------------------------------------------- |
-| span   | true     | [12]     | An array of lenghts for the column to span. |
-| offset | false    | ["auto"] | An array of offsets for the column.         |
-
-## Theme
-
-### Grid
-
-```js
-// Default theme. Sizing in rems
-<Grid theme={{
-  gap: 2,
-  columns: 12,
-  breakPoints: {
-    xsm: 40,
-    sm: 60,
-    md: 80,
-    lg: 100,
-    xlg: 120
-  }
-}} />
-```
+Read up at [styled system](https://styled-system.com/table).
