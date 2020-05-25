@@ -5,23 +5,6 @@
 
 A _tiny_ grid for `styled-components` and `style-system`.
 
-## Anatomy
-
-Tiny grid uses `rem` units by default to give a consistency within your design. You can should be setting the `rem` in your project to a spacing that makes sense for you.
-
-To set rem units reliably you can use the `:root` selector in CSS.
-
-```css
-:root {
-  font-size: 8px;
-}
-
-body {
-  /* Multiple of your base 8 * 2 = 16px */
-  font-size: 2rem;
-}
-```
-
 ## Installation
 
 ```bash
@@ -36,7 +19,7 @@ import { Grid, Col } from "lil-grid"
 export default () => {
   return (
     <Grid>
-      <Col gridColumn={["span 12", "span 6", "span 4"]}>
+      <Col span={[12, 6, 4]}>
         I will be 12 columns at the smallest size, then 6, then 4.
       </Col>
     </Grid>
@@ -44,8 +27,23 @@ export default () => {
 }
 ```
 
-## Grid
+## Grid Props
 
-Styled system allowed props are `layout`,`space`,`grid`,`flexbox`, & `color`.
+### Styled Props
 
-Read up at [styled system](https://styled-system.com/table).
+`space, layout, flexbox, grid`
+
+| Name    | Type   | Default | Description                                                                           |
+| ------- | ------ | ------- | ------------------------------------------------------------------------------------- |
+| columns | number | 12      | A shorthand for `grid-template-columns: repeat(n, 1fr)` where n is your column count. |
+
+## Col Props
+
+`space, layout, flexbox, grid, color, background`
+
+| Name      | Type       | Default | Description                                                        |
+| --------- | ---------- | ------- | ------------------------------------------------------------------ |
+| span      | `[number]` | `null`  | The amount of column places for the element to span.               |
+| offset    | `[number]` | `null`  | The amount of column places to offset the start of the element by. |
+| spanRow   | `[number]` | `null`  | The amount of row places for the element to span.                  |
+| offsetRow | `[number]` | `null`  | The amount of column places to offset the start of the element by. |
