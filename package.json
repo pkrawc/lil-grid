@@ -4,10 +4,8 @@
   "description": "A tiny grid for styled-components systems",
   "repository": "github:pkrawc/lil-grid",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "files": [
-    "dist/*",
-    "src/*"
+    "dist/*"
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006",

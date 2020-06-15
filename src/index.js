@@ -27,7 +27,6 @@ Grid.defaultProps = {
 function getSpan(span, offset) {
   const spanArr = Array.isArray(span) ? span : [span]
   const offsetArr = Array.isArray(offset) ? offset : [offset]
-  console.log(spanArr)
   return spanArr.map((span, idx) => {
     const start = offsetArr[idx] || offsetArr[offsetArr.length - 1] || "auto"
     return `${start} / span ${span}`
